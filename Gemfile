@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem "sqlite3"
 gem "jquery-rails"
 gem "haml-rails"
 gem "sass-rails"
@@ -14,11 +15,14 @@ gem "devise", "~> 2.0.0.rc"
 gem "cancan"
 gem "redcarpet"
 gem "awesome_print"
-
-gem "sqlite3"
-gem "rspec-rails"
-gem "capybara"
-gem "launchy"
-gem "database_cleaner"
 gem "eventmachine" #, ">= 1.0.0.beta.4.1"
 gem "thin"
+
+group :test do
+  gem "rspec-rails"
+  gem "capybara"
+  gem "cucumber-rails"
+  gem "launchy"
+  gem "database_cleaner"
+  gem "cucumber"
+end
