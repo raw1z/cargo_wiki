@@ -1,0 +1,6 @@
+%h1 Editing Account
+
+= simple_form_for @user do |f|
+  = render 'form', :form => f
+  .actions
+    = f.button :submit, "Update"

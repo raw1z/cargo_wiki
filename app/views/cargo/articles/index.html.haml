@@ -1,0 +1,28 @@
+%h1 Articles
+
+- if signed_in?
+  .toolbar
+    = link_to 'New Article', new_article_path
+
+%table.list
+  %thead
+    %tr
+      %th Title
+      %th Author
+      %th Last Update by
+      %th Last Update Date
+      %th Actions
+  %tbody
+    - @articles.each do |article|
+      %tr
+        %td= link_to article.title, article
+        %td= article.author.username
+        %td= article.last_update_by.username
+        %td= l article.updated_at, :format => :short
+        %td
+          = link_to 'History', article_versions_path(article)
+          - if signed_in?
+            |
+            = link_to 'Edit', edit_article_path(article)
+            |
+            = link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete

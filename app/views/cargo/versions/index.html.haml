@@ -1,0 +1,19 @@
+%h1 History
+
+%table.list
+  %thead
+    %tr
+      - if @article.nil?
+        %th Article
+      %th Commit message
+      %th Changes by
+      %th Date
+
+  %tbody
+    - @versions.each do |version|
+      %tr
+        - if @article.nil?
+          %td= link_to version.item.title, version.item
+        %td= version.commit_message
+        %td= Cargo::User.find(version.terminator).username
+        %td=l version.created_at, :format => :short

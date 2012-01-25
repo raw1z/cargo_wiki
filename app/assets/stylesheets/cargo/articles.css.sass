@@ -1,0 +1,45 @@
+@import compass
+@import blueprint
+@import blueprint/liquid
+@import cargo/mixins
+
+article
+  +column(24)
+  margin-top: 1em
+  .title
+    +column(24)
+    font-size: 2em
+    margin: 1em 0 0.5em 0
+  .body
+    +column(24)
+    text-align: justify
+
+form.article
+  +border-radius
+  border: 1px solid #ddd
+  background-color: #eee
+
+  label
+    display: none
+
+  input[type=text], textarea
+    +border-radius
+    font-family: "saxMonoRegular"
+    font-size: 1em
+    outline: none
+    display: block
+    padding: 10px 0 10px 0
+  
+  textarea
+    height: 40em
+
+  input[type=submit], .actions a
+    +base-button
+    margin: 5px 5px
+
+  .hint
+    display: block
+    margin-bottom: 0.5em
+
+  .errors
+    color: $error-color

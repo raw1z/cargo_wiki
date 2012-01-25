@@ -1,0 +1,132 @@
+@import compass
+@import blueprint
+@import blueprint/liquid
+@import cargo/mixins
+
+$blueprint-liquid-container-width: 100%
+$font-color: #223
+$link-color: $font-color
+$link-hover-color: #ff2300
+$error-color: #f00
+$nav-bg-color: #222
+$nav-color: #eee
+
++blueprint
+
+body
+  font-family: "saxMonoRegular", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif
+  margin: 0
+  padding: 0
+
+strong, em, b, i
+  font-family: "saxMonoRegular", "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif
+
+h1, h2, h3, h4, h5, h6, address
+  font-family: "saxMonoRegular", "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif
+  color: $font-color
+
+a
+  +hover-link
+  +link-colors($link-color, $link-hover-color, $link-color, $link-color, $link-color)
+  text-decoration: none
+
+.flash
+  position: fixed
+  top: 0
+  left: 120px
+  width: 400px
+  z-index: 9999
+  text-align: center
+  margin-top: 0.5em
+  &#flash-notice
+    +notice
+
+  &#flash-error, &#flash-alert
+    +error
+
+#session
+  +single-box-shadow
+  +border-bottom-radius
+  position: absolute
+  top: 0
+  right: 20px
+  background-color: $nav-bg-color
+  padding: 0.5em
+  a
+    +link-colors($nav-color)
+
+#container
+  +container
+
+nav
+  +column(2, true)
+  +single-box-shadow
+  font-size: 1.1em
+  background-color: $nav-bg-color
+  color: $nav-color
+
+  ul
+    +no-bullet
+    margin: 1em 0 0 0
+    padding: 0
+
+    li
+      text-align: center
+      margin-bottom: 1em
+      a
+        +link-colors($nav-color, $nav-color, $nav-color, $nav-color, $nav-color)
+      img
+        border: none
+
+#body
+  +column(20)
+  +prepend(1)
+
+header
+  +column(24)
+
+  #logo
+    font-size: 4em
+    font-weight: bold
+    text-align: center
+    padding: 0.5em
+    a
+      +link-colors($font-color)
+
+
+#content
+  +column(24)
+
+  .toolbar
+    margin-top: 1em
+    margin-bottom: 1em
+    text-align: right
+    font-size: 0.9em
+    a
+      +base-button
+
+  h1
+    text-align: center
+    border-bottom: 1px solid $font-color
+    letter-spacing: 0
+    text-transform: uppercase
+
+  table.list
+    +border-radius
+    font-size: 1.1em
+    th
+      background-color: $nav-bg-color
+      color: $nav-color
+      &:first-child
+        +border-top-left-radius
+      &:last-child
+        +border-top-right-radius
+    td
+      text-align: center
+    tr
+      background-color: #eee
+      &:last-child
+        td:first-child
+          +border-bottom-left-radius
+        td:last-child
+          +border-bottom-right-radius

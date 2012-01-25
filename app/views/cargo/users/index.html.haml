@@ -1,0 +1,20 @@
+%h1 Accounts
+
+.toolbar
+  = link_to "New Account", new_user_path
+
+%table.list
+  %thead
+    %tr
+      %th Username
+      %th Role
+      %th Actions
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.username
+        %td= user.role
+        %td
+          = link_to "Edit", edit_user_path(user)
+          |
+          = link_to "Destroy", user, :method => :delete

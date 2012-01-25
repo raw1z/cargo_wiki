@@ -1,0 +1,7 @@
+= simple_form_for @article do |f|
+  = f.input :title
+  = f.input :body
+  = f.input :last_commit_message, :hint => "Describe your changes here"
+
+  .actions
+    = f.button :submit

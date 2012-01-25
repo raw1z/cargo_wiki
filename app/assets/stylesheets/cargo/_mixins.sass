@@ -1,0 +1,12 @@
+=base-button($button-color: #fff, $button-hover-color: #f8f8f8)
+  +border-radius
+  +background-image(linear-gradient($button-color, darken($button-color, 10)))
+  background-color: darken($button-color, 10)
+  border: 1px solid darken($button-color, 15)
+  padding: 0.5em
+  color: $font-color
+  text-decoration: none
+  &:hover
+    +background-image(linear-gradient($button-hover-color, darken($button-hover-color, 10)))
+    cursor: pointer
+    background-color: darken($button-hover-color, 10)

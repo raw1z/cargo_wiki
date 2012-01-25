@@ -1,0 +1,22 @@
+@import compass
+@import blueprint
+@import blueprint/liquid
+@import cargo/mixins
+
+form.user
+  label
+    display: inline-block
+    width: 200px
+    text-align: right
+    margin-right: 1em
+
+  abbr
+    border-bottom: none
+    color: $error-color
+
+  input[type=submit]
+    +base-button
+
+table.users
+  tr
+    background-color: #eee
