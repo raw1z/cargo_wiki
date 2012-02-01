@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Cargo::VERSION
   s.authors     = ["Rawane ZOSSOU"]
   s.email       = ["dev@raw1z.fr"]
-  s.homepage    = "TODO"
+  s.homepage    = "http://github.com/raw1z/cargo"
   s.summary     = "Wiki engine"
   s.description = "Wiki engine based on Rails 3 engine"
 
