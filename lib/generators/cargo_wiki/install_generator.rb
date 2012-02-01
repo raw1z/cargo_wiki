@@ -1,3 +1,4 @@
+require 'fileutils'
 require 'rails/generators'
 
 module CargoWiki
@@ -6,8 +7,8 @@ module CargoWiki
       desc 'Copy (but does not run) the migrations of the engine.'
       def copy_migrations_files
         empty_directory "db/migrate"
-        Dir.glob[File.expand_path('../../../../db/migrate/*.rb', __FILE__)] do |file|
-          copy_file file, "db/migrate"
+        Dir.glob(File.expand_path('../../../../db/migrate/*.rb', __FILE__)).each do |file|
+          FileUtils.cp(file, "db/migrate")
         end
       end
     end
