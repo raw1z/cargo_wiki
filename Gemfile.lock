@@ -35,7 +35,6 @@ GEM
     awesome_print (1.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
-    cancan (1.6.7)
     capybara (1.1.2)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -67,15 +66,9 @@ GEM
       capybara (>= 1.1.2)
       cucumber (>= 1.1.3)
       nokogiri (>= 1.5.0)
-    daemons (1.1.5)
     database_cleaner (0.7.1)
-    devise (2.0.0.rc)
-      bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.0.3)
-      warden (~> 1.1)
     diff-lcs (1.1.3)
     erubis (2.7.0)
-    eventmachine (0.12.10)
     execjs (1.3.0)
       multi_json (~> 1.0)
     factory_girl (2.5.0)
@@ -111,7 +104,6 @@ GEM
     mime-types (1.17.2)
     multi_json (1.0.4)
     nokogiri (1.5.0)
-    orm_adapter (0.0.6)
     paper_trail (2.6.0)
       rails (~> 3)
     polyglot (0.3.3)
@@ -176,18 +168,12 @@ GEM
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.5)
     term-ansicolor (1.0.7)
-    thin (1.3.1)
-      daemons (>= 1.0.9)
-      eventmachine (>= 0.12.6)
-      rack (>= 1.0.0)
     thor (0.14.6)
     tilt (1.3.3)
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.31)
-    warden (1.1.0)
-      rack (>= 1.0)
     xpath (0.1.4)
       nokogiri (~> 1.3)
 
@@ -197,15 +183,13 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   awesome_print
-  cancan
+  bcrypt-ruby
   capybara
   coffee-rails
   compass (>= 0.12.alpha.4)
   cucumber
   cucumber-rails
   database_cleaner
-  devise (~> 2.0.0.rc)
-  eventmachine
   execjs
   factory_girl_rails
   faker
@@ -219,4 +203,3 @@ DEPENDENCIES
   sass-rails
   simple_form
   sqlite3
-  thin

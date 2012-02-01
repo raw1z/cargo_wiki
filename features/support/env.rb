@@ -7,6 +7,8 @@
 ENV["RAILS_ROOT"] ||= File.expand_path("../../../spec/dummy", __FILE__)
 require 'cucumber/rails'
 
+require 'factory_girl'
+require 'faker'
 Dir.glob(File.expand_path("../../../spec/factories/*.rb", __FILE__)).each { |f| require f }
 require 'factory_girl/step_definitions'
 
