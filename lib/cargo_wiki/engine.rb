@@ -1,3 +1,7 @@
+require "rubygems"
+require "bundler/setup"
+Bundler.require(:default)
+
 module CargoWiki
   class Engine < ::Rails::Engine
     isolate_namespace CargoWiki
