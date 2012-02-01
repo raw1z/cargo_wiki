@@ -25,9 +25,9 @@
 
           #session
             - unless signed_in?
-              = link_to "Connexion", login_path
+            = link_to "Login", login_path
             -else
-              = link_to "Déconnexion", logout_path, :method => :delete
+              = link_to "Logout", logout_path, :method => :delete
 
         #content(role='main')
           = yield
