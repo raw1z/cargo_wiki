@@ -7,11 +7,11 @@ Given /^I changed the title of one of them$/ do
 end
 
 When /^I visit the history page$/ do
-  visit '/cargo/versions'
+  visit '/cargo_wiki/versions'
 end
 
 Then /^I should see two changes on the last modified article$/ do
-  versions = Cargo::Article.last.versions
+  versions = CargoWiki::Article.last.versions
   versions.count.should == 2
   versions.each do |version|
     within('.versions') do
@@ -26,7 +26,7 @@ Then /^I should see two changes on the last modified article$/ do
 end
 
 Then /^I should see one change on the other one$/ do
-  article = Cargo::Article.first
+  article = CargoWiki::Article.first
   article.versions.count.should == 1
   version = article.versions[0]
   within('.versions') do
@@ -48,8 +48,8 @@ Given /^I changed its title$/ do
 end
 
 When /^I visit the article history page$/ do
-  @article = Cargo::Article.last
-  visit "/cargo/articles/#{@article.id}/versions"
+  @article = CargoWiki::Article.last
+  visit "/cargo_wiki/articles/#{@article.id}/versions"
 end
 
 Then /^I should see my changes on that article$/ do
@@ -67,5 +67,5 @@ end
 
 Then /^I should be able to return to the article show page$/ do
   click_link "Back to article"
-  current_path.should == "/cargo/articles/#{Cargo::Article.last.id}"
+  current_path.should == "/cargo_wiki/articles/#{CargoWiki::Article.last.id}"
 end

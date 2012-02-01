@@ -1,12 +1,12 @@
 When /^I select this article$/ do
-  @article = Cargo::Article.last
+  @article = CargoWiki::Article.last
   within("#article-#{@article.id}") do
     click_link(@article.title)
   end
 end
 
 Then /^I should be redirected to the article show page$/ do
-  current_path.should == "/cargo/articles/#{@article.id}"
+  current_path.should == "/cargo_wiki/articles/#{@article.id}"
 end
 
 Then /^I should see the title of the article$/ do

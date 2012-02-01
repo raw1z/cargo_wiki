@@ -1,0 +1,35 @@
+!!!5
+%html
+  %head
+    %title TP Wiki
+    = stylesheet_link_tag    "cargo_wiki/application", :media => "all"
+    = javascript_include_tag "cargo_wiki/application"
+    = csrf_meta_tags
+
+  %body(class="#{controller_name}")
+    #container
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash-#{name}", :class => "flash"
+
+      %nav(role='navigation')
+        %ul
+          %li.articles= link_to image_tag('cargo_wiki/tags.png') + raw('<br/> Tags'), tags_path
+          %li.articles= link_to image_tag('cargo_wiki/articles.png') + raw('<br/> Articles'), articles_path
+          %li.history= link_to image_tag('cargo_wiki/history.png') + raw('<br/> History'), versions_path
+          - if signed_in? and current_user.admin?
+            %li.users= link_to image_tag('cargo_wiki/accounts.png') + raw('<br/> Accounts'), users_path
+
+      #body
+        %header(role='banner')
+          #logo= link_to "CARGO", root_url
+
+          #session
+            - unless signed_in?
+              = link_to "Connexion", login_path
+            -else
+              = link_to "Déconnexion", logout_path, :method => :delete
+
+        #content(role='main')
+          = yield
+
+        %footer

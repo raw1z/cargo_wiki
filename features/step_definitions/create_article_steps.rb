@@ -15,8 +15,8 @@ When /^I click on 'Create'$/ do
 end
 
 Then /^I should be redirected to the new article show page$/ do
-  @article = Cargo::Article.last
-  current_path.should == "/cargo/articles/#{@article.id}"
+  @article = CargoWiki::Article.last
+  current_path.should == "/cargo_wiki/articles/#{@article.id}"
 end
 
 Then /^I should see the newly created article$/ do
@@ -52,7 +52,7 @@ Given /^I fill the new article form with valid data except the commit message$/ 
 end
 
 Then /^I should stay on the new article page$/ do
-  current_path.should == "/cargo/articles"
+  current_path.should == "/cargo_wiki/articles"
   page.should have_css('#article_title')
   page.should have_css('#article_body')
   page.should have_css('#article_last_commit_message')

@@ -1,6 +1,6 @@
 Given /^I visit its show page$/ do
-  @article = Cargo::Article.last
-  visit "/cargo/articles/#{@article.id}"
+  @article = CargoWiki::Article.last
+  visit "/cargo_wiki/articles/#{@article.id}"
 end
 
 Given /^I click on 'Edit'$/ do
@@ -27,7 +27,7 @@ Then /^I should see the new (.*)$/ do |attribute|
 end
 
 Then /^I should stay on the edit article page$/ do
-  current_path.should == "/cargo/articles/#{@article.id}"
+  current_path.should == "/cargo_wiki/articles/#{@article.id}"
   page.should have_css('#article_title')
   page.should have_css('#article_body')
   page.should have_css('#article_last_commit_message')

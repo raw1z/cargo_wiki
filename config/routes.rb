@@ -1,4 +1,4 @@
-Cargo::Engine.routes.draw do
+CargoWiki::Engine.routes.draw do
   resources :tags, :only => :index do
     resources :articles
   end

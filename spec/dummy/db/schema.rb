@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20120201013717) do
 
-  create_table "cargo_articles", :force => true do |t|
+  create_table "cargo_wiki_articles", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.datetime "created_at", :null => false
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20120201013717) do
     t.integer  "author_id"
   end
 
-  create_table "cargo_users", :force => true do |t|
+  create_table "cargo_wiki_users", :force => true do |t|
     t.string   "username"
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
