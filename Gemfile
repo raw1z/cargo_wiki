@@ -18,6 +18,7 @@ gem "redcarpet"
 gem "awesome_print"
 gem "eventmachine" #, ">= 1.0.0.beta.4.1"
 gem "thin"
+gem "acts-as-taggable-on"
 
 group :test do
   gem "rspec-rails"

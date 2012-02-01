@@ -1,6 +1,7 @@
 = simple_form_for @article do |f|
   = f.input :title
   = f.input :body
+  = f.input :tag_list, :hint => "Enter the tags associated to this article here", :input_html => { :"data-pre" => @article.tags.to_json }
   = f.input :last_commit_message, :hint => "Describe your changes here"
 
   .actions

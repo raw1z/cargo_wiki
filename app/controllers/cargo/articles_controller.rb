@@ -3,7 +3,12 @@ module Cargo
     before_filter :require_login, :except => [:index, :show]
 
     def index
-      @articles = Article.all
+      if params[:tag_id]
+        @tag = ActsAsTaggableOn::Tag.find(params[:tag_id])
+        @articles = Cargo::Article.tagged_with(@tag.name).order('created_at ASC')
+      else
+        @articles = Article.scoped
+      end
 
       respond_to do |format|
         format.html # index.html.erb

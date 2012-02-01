@@ -1,6 +1,9 @@
-%h1 Articles
+- unless @tag.blank?
+  %h1 #{@tag.name} - Articles
+- else
+  %h1 Articles
 
-- if signed_in?
+- if signed_in? and @tag.blank?
   .toolbar
     = link_to 'New Article', new_article_path
 
@@ -11,7 +14,10 @@
       %th Author
       %th Last Update by
       %th Last Update Date
-      %th Actions
+
+      - if @tag.blank?
+        %th Actions
+
   %tbody
     - @articles.each do |article|
       %tr{ :id => "article-#{article.id}" }
@@ -19,13 +25,15 @@
         %td= article.author.username
         %td= article.last_update_by.username
         %td= l article.updated_at, :format => :short
-        %td.actions
-          = link_to 'History', article_versions_path(article)
 
-          - if signed_in?
-            |
-            = link_to 'Edit', edit_article_path(article)
+        -if @tag.blank?
+          %td.actions
+            = link_to 'History', article_versions_path(article)
 
-            - if current_user.admin?
+            - if signed_in?
               |
-              = link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete
+              = link_to 'Edit', edit_article_path(article)
+
+              - if current_user.admin?
+                |
+                = link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete

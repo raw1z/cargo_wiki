@@ -13,6 +13,7 @@
 
       %nav(role='navigation')
         %ul
+          %li.articles= link_to image_tag('cargo/tags.png') + raw('<br/> Tags'), tags_path
           %li.articles= link_to image_tag('cargo/articles.png') + raw('<br/> Articles'), articles_path
           %li.history= link_to image_tag('cargo/history.png') + raw('<br/> History'), versions_path
           - if signed_in? and current_user.admin?
