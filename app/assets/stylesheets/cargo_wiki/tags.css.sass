@@ -3,9 +3,22 @@
 @import blueprint/liquid
 @import cargo_wiki/mixins
 
+$tag-bg-color: #eee
+$tag-color: $font-color
+
 .tags_list
   text-align: center
   font-size: 1.5em
+
+  .css1, .css2, .css3, .css4
+    background-color: $tag-bg-color
+    color: $tag-color
+    padding: 0.5em
+    &:hover
+      background-color: darken($tag-bg-color, 10)
+    a
+      +link-colors($tag-color)
+      text-decoration: none
 
   .css1
     font-size: 1.0em
