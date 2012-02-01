@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency "simple_form"
   s.add_dependency "rails3-generators"
   s.add_dependency "redcarpet"
+  s.add_dependency "rdiscount"
   s.add_dependency "acts-as-taggable-on"
   s.add_dependency "bcrypt-ruby"
 

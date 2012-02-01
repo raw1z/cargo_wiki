@@ -10,6 +10,7 @@ gem "paper_trail"
 gem "simple_form"
 gem "rails3-generators"
 gem "redcarpet"
+gem "rdiscount"
 gem "acts-as-taggable-on"
 gem "bcrypt-ruby"
 
