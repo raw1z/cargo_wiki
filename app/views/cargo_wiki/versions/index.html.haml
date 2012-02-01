@@ -1,4 +1,7 @@
-%h1 History
+- if @article.nil?
+  %h1 History
+- else
+  %h1 History - #{@article.title}
 
 - unless @article.nil?
   .toolbar
@@ -7,8 +10,8 @@
 %table.list
   %thead
     %tr
-      - if @article.nil?
-        %th Article
+      %th Version
+      %th Title
       %th Commit message
       %th Changes by
       %th Date
@@ -16,8 +19,8 @@
   %tbody
     - @versions.each do |version|
       %tr{ :id => "version-#{version.id}" }
-        - if @article.nil?
-          %td= link_to version.item.title, version.item
+        %td= version.index
+        %td= link_to (version.next.try(:reify) || version.item).title, article_version_path(version.item, version)
         %td= version.commit_message
         %td= version.created_by.username
         %td=l version.created_at, :format => :short

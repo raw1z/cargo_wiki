@@ -7,7 +7,7 @@ CargoWiki::Engine.routes.draw do
   resources :users
 
   resources :articles do
-    resources :versions, :only => :index
+    resources :versions, :only => [:index, :show]
   end
 
   resources :sessions

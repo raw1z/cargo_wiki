@@ -9,7 +9,4 @@
 
   = link_to 'Back to articles', articles_path
 
-.article
-  %h1.title= @article.title
-  - unless @article.body.blank?
-    .body= markdown @article.body
+= render 'article', :article => @article
