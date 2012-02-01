@@ -5,9 +5,11 @@ module CargoWiki
     def index
       if params[:tag_id]
         @tag = ActsAsTaggableOn::Tag.find(params[:tag_id])
-        @articles = CargoWiki::Article.tagged_with(@tag.name).order('created_at ASC')
+        @articles = Article.published.tagged_with(@tag.name).order('created_at ASC')
+        @unpublished_articles = Article.unpublished.tagged_with(@tag.name).order('created_at ASC')
       else
-        @articles = Article.scoped
+        @articles = Article.published
+        @unpublished_articles = Article.unpublished
       end
 
       respond_to do |format|
@@ -17,7 +19,7 @@ module CargoWiki
     end
 
     def show
-      @article = Article.find(params[:id])
+      @article = Article.published.find(params[:id])
 
       respond_to do |format|
         format.html # show.html.erb
@@ -35,11 +37,11 @@ module CargoWiki
     end
 
     def edit
-      @article = Article.find(params[:id])
+      @article = Article.published.find(params[:id])
     end
 
     def create
-      @article = current_user.articles.new(params[:article])
+      @article = current_user.articles.published.new(params[:article])
 
       respond_to do |format|
         if @article.save
@@ -53,7 +55,7 @@ module CargoWiki
     end
 
     def update
-      @article = Article.find(params[:id])
+      @article = Article.published.find(params[:id])
 
       respond_to do |format|
         if @article.update_attributes(params[:article])
@@ -67,8 +69,22 @@ module CargoWiki
     end
 
     def destroy
-      @article = Article.find(params[:id])
-      @article.destroy
+      @article = Article.published.find(params[:id])
+      @article.published = false
+      @article.last_commit_message = "unpublished article"
+      @article.save!
+
+      respond_to do |format|
+        format.html { redirect_to articles_url }
+        format.json { head :no_content }
+      end
+    end
+
+    def publish
+      @article = Article.unpublished.find(params[:id])
+      @article.published = true
+      @article.last_commit_message = "published article"
+      @article.save!
 
       respond_to do |format|
         format.html { redirect_to articles_url }

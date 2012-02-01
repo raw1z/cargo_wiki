@@ -10,6 +10,9 @@ module CargoWiki
     belongs_to :author, :class_name => 'User'
     validates_presence_of :title, :last_commit_message
 
+    scope :published, where(:published => true)
+    scope :unpublished, where(:published => false)
+
     def last_update_by
       whodunnit = self.versions.last.whodunnit
       whodunnit.nil? ? self.author : User.find(whodunnit)

@@ -8,6 +8,7 @@ CargoWiki::Engine.routes.draw do
 
   resources :articles do
     resources :versions, :only => [:index, :show]
+    post :publish, :on => :member
   end
 
   resources :sessions

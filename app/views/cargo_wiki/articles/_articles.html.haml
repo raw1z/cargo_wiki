@@ -1,0 +1,33 @@
+%table.list.articles
+  %thead
+    %tr
+      %th Title
+      %th Author
+      %th Last Update by
+      %th Last Update Date
+
+      - if @tag.blank?
+        %th Actions
+
+  %tbody
+    - articles.each do |article|
+      %tr{ :id => "article-#{article.id}" }
+        %td= article.published? ? link_to(article.title, article) : article.title
+        %td= article.author.username
+        %td= article.last_update_by.username
+        %td= l article.updated_at, :format => :short
+
+        -if @tag.blank?
+          %td.actions
+            - if article.published?
+              = link_to 'History', article_versions_path(article)
+
+              - if signed_in?
+                |
+                = link_to 'Edit', edit_article_path(article)
+
+                - if current_user.admin?
+                  |
+                  = link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete
+            - else
+              = link_to 'Publish', publish_article_path(article), :method => :post, :confirm => "Are you sure?"
