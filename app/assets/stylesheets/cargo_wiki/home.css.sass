@@ -10,6 +10,8 @@ $font-color: #223
 $link-color: $nav-bg-color
 $link-hover-color: #ff2300
 $error-color: #f00
+$session-bg-color: #222
+$session-color: #eee
 
 +blueprint
 
@@ -49,10 +51,10 @@ a
   position: absolute
   top: 0
   right: 20px
-  background-color: $nav-bg-color
+  background-color: $session-bg-color
   padding: 0.5em
   a
-    +link-colors($nav-color)
+    +link-colors($session-color)
 
 #container
   +container
