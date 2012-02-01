@@ -4,7 +4,7 @@
   .toolbar
     = link_to 'New Article', new_article_path
 
-%table.list
+%table.list.articles
   %thead
     %tr
       %th Title
@@ -14,15 +14,18 @@
       %th Actions
   %tbody
     - @articles.each do |article|
-      %tr
+      %tr{ :id => "article-#{article.id}" }
         %td= link_to article.title, article
         %td= article.author.username
         %td= article.last_update_by.username
         %td= l article.updated_at, :format => :short
-        %td
+        %td.actions
           = link_to 'History', article_versions_path(article)
+
           - if signed_in?
             |
             = link_to 'Edit', edit_article_path(article)
-            |
-            = link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete
+
+            - if current_user.admin?
+              |
+              = link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete

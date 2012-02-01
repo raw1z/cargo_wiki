@@ -7,6 +7,8 @@ module Cargo
     has_secure_password
 
     validates_presence_of :username, :password, :role, :on => :create
+    validates_uniqueness_of :username
+
     has_many :articles, :foreign_key => :author_id
     before_create { generate_token(:auth_token) }
 

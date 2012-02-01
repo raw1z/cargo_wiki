@@ -1,5 +1,9 @@
 %h1 History
 
+- unless @article.nil?
+  .toolbar
+    = link_to "Back to article", @article
+
 %table.list
   %thead
     %tr
@@ -11,9 +15,9 @@
 
   %tbody
     - @versions.each do |version|
-      %tr
+      %tr{ :id => "version-#{version.id}" }
         - if @article.nil?
           %td= link_to version.item.title, version.item
         %td= version.commit_message
-        %td= Cargo::User.find(version.terminator).username
+        %td= version.created_by.username
         %td=l version.created_at, :format => :short

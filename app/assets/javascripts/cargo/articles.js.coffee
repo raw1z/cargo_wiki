@@ -11,4 +11,3 @@ jQuery ->
   setInputWidth('#article_title')
   setInputWidth('#article_body')
   setInputWidth('#article_last_commit_message')
-    

@@ -4,12 +4,12 @@
 @import cargo/mixins
 
 $blueprint-liquid-container-width: 100%
+$nav-bg-color: #3b5998
+$nav-color: #eee
 $font-color: #223
-$link-color: $font-color
+$link-color: $nav-bg-color
 $link-hover-color: #ff2300
 $error-color: #f00
-$nav-bg-color: #222
-$nav-color: #eee
 
 +blueprint
 
@@ -91,7 +91,7 @@ header
     text-align: center
     padding: 0.5em
     a
-      +link-colors($font-color)
+      +link-colors($nav-bg-color)
 
 
 #content
@@ -99,7 +99,7 @@ header
 
   .toolbar
     margin-top: 1em
-    margin-bottom: 1em
+    margin-bottom: 1.5em
     text-align: right
     font-size: 0.9em
     a
@@ -130,3 +130,7 @@ header
           +border-bottom-left-radius
         td:last-child
           +border-bottom-right-radius
+
+footer
+  +column(24)
+  margin-top: 2em

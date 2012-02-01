@@ -9,7 +9,7 @@ module Cargo
     def create
       user = User.find_by_username(params[:username])
       if user && user.authenticate(params[:password])
-        params[:remember_me] ? cookies.permanent[:auth_token] = user.auth_token : cookies[:auth_token] = user.auth_token  
+        params[:remember_me] ? cookies.permanent[:auth_token] = user.auth_token : cookies[:auth_token] = user.auth_token
         redirect_to root_url, :notice => "Logged in!"
       else
         flash.now.alert = "Invalid username or password"

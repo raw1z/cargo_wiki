@@ -6,10 +6,11 @@ module Cargo
     has_paper_trail :meta => { :commit_message => :last_commit_message }
 
     belongs_to :author, :class_name => 'User'
-    validates_presence_of :title, :body, :last_commit_message
-    
+    validates_presence_of :title, :last_commit_message
+
     def last_update_by
-      User.find(self.versions.last.whodunnit)
+      whodunnit = self.versions.last.whodunnit
+      whodunnit.nil? ? self.author : User.find(whodunnit)
     end
   end
 end
