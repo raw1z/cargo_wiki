@@ -11,6 +11,8 @@ jQuery ->
 
   # setup the nav bar
   $('nav').height($(document).height())
+  $(window).resize ->
+    $('nav').height($(document).height())
 
   # hide the flash
   setTimeout(hideFlash, 5000)
