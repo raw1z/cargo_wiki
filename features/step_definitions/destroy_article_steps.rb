@@ -20,14 +20,14 @@ Then /^I should be redirected to the articles index page$/ do
 end
 
 Then /^I should see the article remaining in the database$/ do
-  article = CargoWiki::Article.last
-  within('.articles') do
+  article = CargoWiki::Article.first
+  within('.articles .list') do
     within("#article-#{article.id}") { page.should have_content(article.title) }
   end
 end
 
 Then /^I should not see the one deleted$/ do
-  within('.articles') do
+  within('.articles .list') do
     page.should_not have_css("#article-#{@article_id}")
   end
 end

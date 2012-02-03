@@ -16,7 +16,7 @@ Then /^I should see two changes on the last modified article$/ do
   versions.each do |version|
     within('.versions') do
       within("#version-#{version.id}") do
-        page.should have_content(version.item.title)
+        page.should have_content(version.article.title)
         page.should have_content(version.commit_message)
         page.should have_content(@user.username)
         page.should have_content(I18n.l(version.created_at, :format => :short))
@@ -31,7 +31,7 @@ Then /^I should see one change on the other one$/ do
   version = article.versions[0]
   within('.versions') do
     within("#version-#{version.id}") do
-      page.should have_content(version.item.title)
+      page.should have_content(version.article.title)
       page.should have_content(version.commit_message)
       page.should have_content(@user.username)
       page.should have_content(I18n.l(version.created_at, :format => :short))
@@ -56,7 +56,7 @@ Then /^I should see my changes on that article$/ do
   @article.versions.each do |version|
     within('.versions') do
       within("#version-#{version.id}") do
-        page.should_not have_content(version.item.title)
+        page.should have_content(version.article.title)
         page.should have_content(version.commit_message)
         page.should have_content(@user.username)
         page.should have_content(I18n.l(version.created_at, :format => :short))

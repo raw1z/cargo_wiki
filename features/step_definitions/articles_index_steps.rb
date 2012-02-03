@@ -4,7 +4,7 @@ end
 
 Then /^I should see the articles list$/ do
   page.should have_content("Articles")
-  within(".articles.list") do
+  within(".articles .list") do
     CargoWiki::Article.all.each do |article|
       within("#article-#{article.id}") do
         page.should have_content(article.title)
