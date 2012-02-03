@@ -11,7 +11,7 @@ jQuery ->
 
   # setup the nav bar
   $('nav').height($(document).height())
-  $(window).resize ->
+  $(document).scroll ->
     $('nav').height($(document).height())
 
   # hide the flash
