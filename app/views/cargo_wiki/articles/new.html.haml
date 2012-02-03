@@ -1,6 +1,7 @@
 %h1.title New article
 
 .toolbar
-  = link_to 'Back to articles', articles_path
+  = link_to 'Preview', nil, :id => 'show-article-preview', :"data-url" => preview_article_path
+  = link_to 'Back to articles', articles_path, :class => 'cancel-button'
 
 = render 'form'

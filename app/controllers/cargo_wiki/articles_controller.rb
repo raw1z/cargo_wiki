@@ -1,6 +1,7 @@
 module CargoWiki
   class ArticlesController < ApplicationController
     before_filter :require_login, :except => [:index, :show]
+    before_filter :require_admin, :only => [:destroy, :publish]
 
     def index
       if params[:tag_id]
@@ -90,6 +91,10 @@ module CargoWiki
         format.html { redirect_to articles_url }
         format.json { head :no_content }
       end
+    end
+
+    def preview
+      @body = params[:body]
     end
   end
 end

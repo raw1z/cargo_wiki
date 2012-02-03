@@ -12,3 +12,19 @@ jQuery ->
   setInputWidth('#article_body')
   setInputWidth('#article_tag_list')
   setInputWidth('#article_last_commit_message')
+
+  $('#show-article-preview').click ->
+    if $(this).hasClass('active')
+      $('#article-preview').remove()
+      $('form.article, .cheatsheet, .toolbar .cancel-button').show();
+      $(this).removeClass('active').text("Preview")
+    else
+      $(this).text("Please wait...")
+      $.ajax({
+        url: $(this).data('url'),
+        dataType: "script",
+        type: "post",
+        data: { body: $('#article_body').text() },
+      })
+
+    return false

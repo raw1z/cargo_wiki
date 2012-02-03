@@ -1,4 +1,6 @@
 CargoWiki::Engine.routes.draw do
+  match '/article/preview', :to => 'articles#preview', :method => :post, :as => :preview_article
+
   resources :tags, :only => :index do
     resources :articles
   end

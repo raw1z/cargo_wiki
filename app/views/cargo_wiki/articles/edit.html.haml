@@ -1,7 +1,7 @@
 - if signed_in?
   .toolbar
-    = link_to 'Show', @article
-    = link_to 'Back', articles_path
+    = link_to 'Preview', nil, :id => 'show-article-preview', :"data-url" => preview_article_path
+    = link_to 'Back', articles_path, :class => 'cancel-button'
 
 %h1.title Editing article
 

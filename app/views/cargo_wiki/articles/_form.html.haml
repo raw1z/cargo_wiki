@@ -1,123 +1,124 @@
-= simple_form_for @article do |f|
-  = f.input :title
-  = f.input :body
-  = f.input :tag_list, :hint => "Enter the tags associated to this article here", :input_html => { :"data-pre" => @article.tags.to_json }
-  = f.input :last_commit_message, :hint => "Describe your changes here"
+#form-placeholder
+  = simple_form_for @article do |f|
+    = f.input :title
+    = f.input :body
+    = f.input :tag_list, :hint => "Enter the tags associated to this article here", :input_html => { :"data-pre" => @article.tags.to_json }
+    = f.input :last_commit_message, :hint => "Describe your changes here"
 
-  .actions
-    = f.button :submit
+    .actions
+      = f.button :submit
 
-.cheatsheet
-  :markdown
-    ## Syntax Cheatsheet
+  .cheatsheet
+    :markdown
+      ## Syntax Cheatsheet
 
-    ### Phrase Emphasis
+      ### Phrase Emphasis
 
-        *italic*  **bold**
-        _italic_  __bold__
+          *italic*  **bold**
+          _italic_  __bold__
 
-    ### Links
+      ### Links
 
-    Inline:
+      Inline:
 
-        An [example](http://url.com/ "Title")
+          An [example](http://url.com/ "Title")
 
-    Reference-style labels (titles are optional):
+      Reference-style labels (titles are optional):
 
-        An [example][id]. Then anywhere else in the doc, define the link:
+          An [example][id]. Then anywhere else in the doc, define the link:
 
-          [id]: http://example.com "Title"
+            [id]: http://example.com "Title"
 
-    ### Images
+      ### Images
 
-    Inline:
+      Inline:
 
-        ![alt text](/path/img.jpg "Title")
+          ![alt text](/path/img.jpg "Title")
 
-    Reference-style
-        ![alt text][id]
+      Reference-style
+          ![alt text][id]
 
-        [id]: /url/to/img.jpg "Title"
+          [id]: /url/to/img.jpg "Title"
 
-    ### Headers
+      ### Headers
 
-    Setext-style
+      Setext-style
 
-        Header 1
-        ========
+          Header 1
+          ========
 
-        Header 2
-        --------
+          Header 2
+          --------
 
-    Atx-style (closing # are optional)
-        # Header 1 #
+      Atx-style (closing # are optional)
+          # Header 1 #
 
-        ## Header 2 ##
+          ## Header 2 ##
 
-        ###### Header 6
+          ###### Header 6
 
-    ### Lists
+      ### Lists
 
-    Order without pragraphs:
+      Order without pragraphs:
 
-        1. Foo
-        2. Bar
+          1. Foo
+          2. Bar
 
-    Unordered, with paragraphs:
+      Unordered, with paragraphs:
 
-        * A list item
+          * A list item
 
-          With multiple paragraphs
+            With multiple paragraphs
 
-        # Bar
+          # Bar
 
-    You can nest them:
-        * Abacus
-          * answer
-        * Bubbles
-          1. bunk
-          2. bupkis
-            * BELITTLER
-          3. burper
-        * Cunning
+      You can nest them:
+          * Abacus
+            * answer
+          * Bubbles
+            1. bunk
+            2. bupkis
+              * BELITTLER
+            3. burper
+          * Cunning
 
-    ### Blockquotes
+      ### Blockquotes
 
-        > Email-style angle brackets
-        > are used for blockquotes
+          > Email-style angle brackets
+          > are used for blockquotes
 
-        > > And they can be nested
+          > > And they can be nested
 
-        > #### Headers in blockquotes
-        >
-        > * You can quote a list
-        > * Etc
+          > #### Headers in blockquotes
+          >
+          > * You can quote a list
+          > * Etc
 
-    ### Code spans
+      ### Code spans
 
-        `<code>` spans are delimeted by backtickts.
+          `<code>` spans are delimeted by backtickts.
 
-        You can include literal backticks like `` `this` ``
+          You can include literal backticks like `` `this` ``
 
-    ### Preformatted Code Blocks
+      ### Preformatted Code Blocks
 
-    Indent every line of a code block by at least 4 spaces or 1 tab.
+      Indent every line of a code block by at least 4 spaces or 1 tab.
 
-        This is preformatted code block
+          This is preformatted code block
 
-    ### Horizontal Rules
+      ### Horizontal Rules
 
-    Three or more dashes or asterisks:
+      Three or more dashes or asterisks:
 
-        ---
+          ---
 
-        ***
+          ***
 
-        ----
+          ----
 
-    ### Manual Line Breaks
+      ### Manual Line Breaks
 
-        End a line with two or more spaces:
+          End a line with two or more spaces:
 
-        Roses are reds,
-        Violets are blue.
+          Roses are reds,
+          Violets are blue.
