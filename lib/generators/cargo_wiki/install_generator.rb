@@ -22,6 +22,7 @@ module CargoWiki
         migration_template "create_versions.rb", "db/migrate/create_versions.rb"
         migration_template "add_commit_message_to_versions.rb", "db/migrate/add_commit_message_to_versions.rb"
         migration_template "acts_as_taggable_on_migration.rb", "db/migrate/acts_as_taggable_on_migration.rb"
+        migration_template "add_published_to_cargo_wiki_articles.rb", "db/migrate/add_published_to_cargo_wiki_articles.rb"
       end
     end
   end
