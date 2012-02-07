@@ -1,6 +1,1 @@
-%h1.title New Account
-
-= simple_form_for @user do |f|
-  = render 'form', :form => f
-  .actions
-    = f.button :submit, "Create"
+= render 'form', :page_title => "New Account", :button_label => "Create Account"

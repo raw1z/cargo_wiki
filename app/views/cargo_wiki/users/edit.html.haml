@@ -1,6 +1,1 @@
-%h1.title Editing Account
-
-= simple_form_for @user do |f|
-  = render 'form', :form => f
-  .actions
-    = f.button :submit, "Update"
+= render 'form', :page_title => "Editing Account", :button_label => "Update"

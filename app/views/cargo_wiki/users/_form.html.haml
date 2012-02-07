@@ -1,4 +1,11 @@
-= form.input :username
-= form.input :role, :collection => CargoWiki::User::ROLES
-= form.input :password
-= form.input :password_confirmation
+%h1.title #{page_title}
+
+.form-placeholder
+  = simple_form_for @user do |f|
+    = f.input :username
+    = f.input :role, :collection => CargoWiki::User::ROLES
+    = f.input :password
+    = f.input :password_confirmation
+
+    .actions
+      = f.button :submit, button_label
