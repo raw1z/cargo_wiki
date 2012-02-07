@@ -1,9 +1,10 @@
 @import compass
 @import blueprint
 @import blueprint/liquid
+@import cargo_wiki/variables
 @import cargo_wiki/mixins
 
-.article
+.article, #article-preview
   h1.title
     margin-top: 1em
   .body
@@ -22,6 +23,12 @@
       font-size: 1.1em
     h6
       font-size: 1em
+    code
+      +border-radius
+      border: 1px solid #ccc
+      background-color: #ddd
+      padding: 10px
+      display: block
 
 form.article
   +border-radius
@@ -33,8 +40,8 @@ form.article
 
   input[type=text], textarea
     +border-radius
-    font-family: "saxMonoRegular"
-    font-size: 1.2em
+    font-family: monospace
+    font-size: 1.3em
     outline: none
     display: block
     padding: 10px 0 10px 0

@@ -3,6 +3,6 @@
     = link_to 'Preview', nil, :id => 'show-article-preview', :"data-url" => preview_article_path
     = link_to 'Back', articles_path, :class => 'cancel-button'
 
-%h1.title Editing article
+%h1.title Editing : #{@article.title}
 
 = render 'form'

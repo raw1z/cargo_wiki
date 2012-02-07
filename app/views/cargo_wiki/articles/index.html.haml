@@ -10,5 +10,5 @@
   - unless @unpublished_articles.empty?
     %br
 
-    %h1 #{@tag.blank? ? 'Unpublished Articles' : @tag.name + ' - Unpublished Articles'}
+    %h1.title #{@tag.blank? ? 'Unpublished Articles' : @tag.name + ' - Unpublished Articles'}
     .unpublished-articles= render 'articles', :articles => @unpublished_articles

@@ -24,7 +24,7 @@ jQuery ->
         url: $(this).data('url'),
         dataType: "script",
         type: "post",
-        data: { body: $('#article_body').text() },
+        data: { body: $('#article_body').val() },
       })
 
     return false

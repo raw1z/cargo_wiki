@@ -1,27 +1,18 @@
 @import compass
 @import blueprint
 @import blueprint/liquid
+@import cargo_wiki/variables
 @import cargo_wiki/mixins
-
-$blueprint-liquid-container-width: 100%
-$nav-bg-color: #5283ac
-$nav-color: #eee
-$font-color: #223
-$link-color: $nav-bg-color
-$link-hover-color: #ff2300
-$error-color: #f00
-$session-bg-color: #222
-$session-color: #eee
 
 +blueprint
 
 body
-  font-family: "saxMonoRegular", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif
   margin: 0
   padding: 0
 
 strong, em, b, i
-  font-family: "saxMonoRegular", "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif
+  font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif
 
 h1, h2, h3, h4, h5, h6, address
   font-family: "saxMonoRegular", "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif
@@ -68,12 +59,14 @@ nav
 
   ul
     +no-bullet
-    margin: 1em 0 0 0
+    margin: 0
     padding: 0
 
     li
       text-align: center
-      margin-bottom: 1em
+      border-bottom: 1px solid darken($nav-bg-color, 5)
+      padding: 1em 0 1em 0
+      cursor: pointer
       a
         +link-colors($nav-color, $nav-color, $nav-color, $nav-color, $nav-color)
       img

@@ -13,8 +13,13 @@ module CargoWiki
     helper_method :current_user
 
     def markdown(text)
-      options = {:hard_wrap => true, :filter_html => true, :autolink => true, :no_intraemphasis => true, :fenced_code => true, :gh_blockcode => true, :tables => true}
-      markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
+      renderer = Redcarpet::Render::XHTML.new(:hard_wrap => true)
+      markdown = Redcarpet::Markdown.new(renderer,
+        :no_intra_emphasis => true,
+        :tables => true,
+        :autolink => true,
+        :space_after_headers => true
+      )
       markdown.render(text).html_safe
     end
     helper_method :markdown
