@@ -1,3 +1,4 @@
+require 'ap'
 module CargoWiki
   class ApplicationController < ActionController::Base
     private
@@ -14,11 +15,13 @@ module CargoWiki
 
     def markdown(text)
       renderer = Redcarpet::Render::XHTML.new(:hard_wrap => true)
-      markdown = Redcarpet::Markdown.new(renderer,
+      markdown = Redcarpet::Markdown.new(
+        renderer,
         :no_intra_emphasis => true,
         :tables => true,
         :autolink => true,
-        :space_after_headers => true
+        :space_after_headers => true,
+        :fenced_code_blocks => true
       )
       markdown.render(text).html_safe
     end

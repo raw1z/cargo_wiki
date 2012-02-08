@@ -1,2 +1,3 @@
 #article-preview
-  .body= markdown(@body)
+  .body
+    = find_and_preserve markdown(@body)

@@ -1,4 +1,4 @@
 .article
   %h1.title= article.title
   - unless article.body.blank?
-    .body= markdown article.body
+    .body= find_and_preserve markdown(article.body)
