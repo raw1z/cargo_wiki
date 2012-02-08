@@ -19,7 +19,6 @@ h1, h2, h3, h4, h5, h6, address
   color: $font-color
 
 a
-  +hover-link
   +link-colors($link-color, $link-hover-color, $link-color, $link-color, $link-color)
   text-decoration: none
 
@@ -67,8 +66,11 @@ nav
       border-bottom: 1px solid darken($nav-bg-color, 5)
       padding: 1em 0 1em 0
       cursor: pointer
+      &:hover, &.active
+        background-color: darken($nav-bg-color, 3)
       a
         +link-colors($nav-color, $nav-color, $nav-color, $nav-color, $nav-color)
+        display: block
       img
         border: none
 

@@ -7,10 +7,12 @@ setupLayout = ->
 
 jQuery ->
   # set the active tab
-  $('nav a').removeClass('active')
-  $('nav li.home', 'body.home').addClass('active')
+  $('nav li').removeClass('active')
+  $('nav li.tags', 'body.tags').addClass('active')
   $('nav li.articles', 'body.articles').addClass('active')
   $('nav li.history', 'body.history').addClass('active')
+  $('nav li.versions', 'body.versions').addClass('active')
+  $('nav li.users', 'body.users').addClass('active')
 
   # setup the nav bar
   setupLayout()

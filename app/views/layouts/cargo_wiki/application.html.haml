@@ -13,11 +13,16 @@
 
       %nav(role='navigation')
         %ul
-          %li.articles= link_to image_tag('cargo_wiki/tags.png') + raw('<br/> Tags'), tags_path
-          %li.articles= link_to image_tag('cargo_wiki/articles.png') + raw('<br/> Articles'), articles_path
-          %li.history= link_to image_tag('cargo_wiki/history.png') + raw('<br/> History'), versions_path
+          %li.tags
+            = link_to image_tag('cargo_wiki/tags.png') + raw('<br/> Tags'), tags_path
+          %li.articles
+            = link_to image_tag('cargo_wiki/articles.png') + raw('<br/> Articles'), articles_path
+          %li.versions
+            = link_to image_tag('cargo_wiki/history.png') + raw('<br/> History'), versions_path
+
           - if signed_in? and current_user.admin?
-            %li.users= link_to image_tag('cargo_wiki/accounts.png') + raw('<br/> Accounts'), users_path
+            %li.users
+              = link_to image_tag('cargo_wiki/accounts.png') + raw('<br/> Accounts'), users_path
 
       #body
         %header(role='banner')
