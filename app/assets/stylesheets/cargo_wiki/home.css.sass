@@ -41,10 +41,13 @@ a
   position: absolute
   top: 0
   right: 20px
+  font-family: saxMonoRegular
+  font-size: 1.1em
   background-color: $session-bg-color
   padding: 0.5em
   a
     +link-colors($session-color)
+    display: inline-block
 
 #container
   +container
@@ -52,9 +55,11 @@ a
 nav
   +column(2, true)
   +single-box-shadow
+  font-family: saxMonoRegular
   font-size: 1.1em
-  background-color: $nav-bg-color
+  background: $nav-bg-color url(/assets/cargo_wiki/nav-bg.png) repeat-x top left
   color: $nav-color
+  text-transform: uppercase
 
   ul
     +no-bullet
@@ -67,7 +72,7 @@ nav
       padding: 1em 0 1em 0
       cursor: pointer
       &:hover, &.active
-        background-color: darken($nav-bg-color, 3)
+        background: transparent url(/assets/cargo_wiki/nav-menu-bg.png) no-repeat top left
       a
         +link-colors($nav-color, $nav-color, $nav-color, $nav-color, $nav-color)
         display: block
@@ -82,6 +87,7 @@ header
   +column(24)
 
   #logo
+    font-family: saxMonoRegular
     font-size: 4em
     font-weight: bold
     text-align: center
@@ -117,6 +123,7 @@ header
     border-bottom: 1px solid $font-color
     letter-spacing: 0
     text-transform: uppercase
+    font-family: saxMonoRegular
 
   table.list
     +border-radius
