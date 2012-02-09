@@ -9,7 +9,7 @@ Feature: Articles index
 
   @anonymous_visitor
   Scenario: Visit articles index page as anonymous visitor
-    But I should not be able to add/edit/destroy an article
+    But I should not be able to add/edit/unpublish an article
 
   @editor
   Scenario: Visit articles index page as editor
@@ -18,6 +18,6 @@ Feature: Articles index
 
   @admin
   Scenario: Visit articles index page as administrator
-    And I should be able to add/edit/destroy an article
+    And I should be able to add/edit/unpublish an article
 
 

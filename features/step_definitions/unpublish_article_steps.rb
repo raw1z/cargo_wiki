@@ -10,24 +10,24 @@ Given /^I see the two articles$/ do
   end
 end
 
-When /^I delete one of them$/ do
+When /^I unpublish one of them$/ do
   @article_id = CargoWiki::Article.last.id
-  within("#article-#{@article_id}") { click_link("Destroy") }
+  within("#article-#{@article_id}") { click_link("Unpublish") }
 end
 
 Then /^I should be redirected to the articles index page$/ do
   current_path.should == "/cargo_wiki/articles"
 end
 
-Then /^I should see the article remaining in the database$/ do
-  article = CargoWiki::Article.first
-  within('.articles .list') do
-    within("#article-#{article.id}") { page.should have_content(article.title) }
+Then /^I should see the unpublished article in the unpublished article list$/ do
+  within('.unpublished-articles .list') do
+    page.should have_css("#article-#{@article_id}")
   end
 end
 
-Then /^I should not see the one deleted$/ do
+Then /^I should see the other one in the published articles list$/ do
+  article = CargoWiki::Article.first
   within('.articles .list') do
-    page.should_not have_css("#article-#{@article_id}")
+    within("#article-#{article.id}") { page.should have_content(article.title) }
   end
 end

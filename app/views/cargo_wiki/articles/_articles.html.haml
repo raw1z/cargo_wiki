@@ -28,6 +28,6 @@
 
                 - if current_user.admin?
                   |
-                  = link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete
+                  = link_to 'Unpublish', article, :confirm => 'Are you sure?', :method => :delete
             - else
               = link_to 'Publish', publish_article_path(article), :method => :post, :confirm => "Are you sure?"

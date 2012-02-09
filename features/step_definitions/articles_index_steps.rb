@@ -23,22 +23,22 @@ Then /^I should be able to display the history for each article$/ do
   end
 end
 
-Then /^I should not be able to add\/edit\/destroy an article$/ do
+Then /^I should not be able to add\/edit\/unpublish an article$/ do
   page.should have_no_content('New Article')
   CargoWiki::Article.all.each do |article|
     within("#article-#{article.id} .actions") do
       page.should have_no_content('Edit')
-      page.should have_no_content('Destroy')
+      page.should have_no_content('Unpublish')
     end
   end
 end
 
-Then /^I should be able to add\/edit\/destroy an article$/ do
+Then /^I should be able to add\/edit\/unpublish an article$/ do
   page.should have_content('New Article')
   CargoWiki::Article.all.each do |article|
     within("#article-#{article.id} .actions") do
       page.should have_content('Edit')
-      page.should have_content('Destroy')
+      page.should have_content('Unpublish')
     end
   end
 end

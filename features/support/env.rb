@@ -12,6 +12,11 @@ require 'faker'
 Dir.glob(File.expand_path("../../../spec/factories/*.rb", __FILE__)).each { |f| require f }
 require 'factory_girl/step_definitions'
 
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
+Capybara.javascript_driver = :chrome
+
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
 # order to ease the transition to Capybara we set the default here. If you'd
 # prefer to use XPath just remove this line and adjust any selectors in your
