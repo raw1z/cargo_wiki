@@ -9,6 +9,8 @@ require 'cucumber/rails'
 
 require 'factory_girl'
 require 'faker'
+require 'fuubar-cucumber'
+
 Dir.glob(File.expand_path("../../../spec/factories/*.rb", __FILE__)).each { |f| require f }
 require 'factory_girl/step_definitions'
 

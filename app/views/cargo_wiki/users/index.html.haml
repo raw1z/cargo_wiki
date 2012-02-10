@@ -3,7 +3,7 @@
 .toolbar
   = link_to "New Account", new_user_path
 
-%table.list
+%table.users.list
   %thead
     %tr
       %th Username
@@ -11,7 +11,7 @@
       %th Actions
   %tbody
     - @users.each do |user|
-      %tr
+      %tr{ :id => "user-#{user.id}" }
         %td= user.username
         %td= user.role
         %td

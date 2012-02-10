@@ -25,4 +25,6 @@ group :test do
   gem "launchy"
   gem "database_cleaner"
   gem "cucumber"
+  gem "fuubar"
+  gem "fuubar-cucumber"
 end

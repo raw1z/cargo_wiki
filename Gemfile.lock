@@ -80,6 +80,13 @@ GEM
       i18n (~> 0.4)
     ffi (1.0.11)
     fssm (0.2.8.1)
+    fuubar (1.0.0)
+      rspec (~> 2.0)
+      rspec-instafail (~> 0.2.0)
+      ruby-progressbar (~> 0.0.10)
+    fuubar-cucumber (0.0.15)
+      cucumber (>= 1.0.2)
+      ruby-progressbar (~> 0.0.10)
     gherkin (2.7.3)
       json (>= 1.4.6)
     haml (3.1.4)
@@ -143,12 +150,14 @@ GEM
     rspec-core (2.8.0)
     rspec-expectations (2.8.0)
       diff-lcs (~> 1.1.2)
+    rspec-instafail (0.2.2)
     rspec-mocks (2.8.0)
     rspec-rails (2.8.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
       rspec (~> 2.8.0)
+    ruby-progressbar (0.0.10)
     rubyzip (0.9.5)
     sass (3.1.12)
     sass-rails (3.2.4)
@@ -194,6 +203,8 @@ DEPENDENCIES
   execjs
   factory_girl_rails
   faker
+  fuubar
+  fuubar-cucumber
   haml-rails
   jquery-rails
   launchy

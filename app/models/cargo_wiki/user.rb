@@ -6,7 +6,8 @@ module CargoWiki
 
     has_secure_password
 
-    validates_presence_of :username, :password, :role, :on => :create
+    validates_presence_of :password, :on => :create
+    validates_presence_of :username, :role
     validates_uniqueness_of :username
 
     has_many :articles, :foreign_key => :author_id
@@ -20,6 +21,10 @@ module CargoWiki
 
     def admin?
       self.role == "admin"
+    end
+
+    def valid_password?(password)
+      self.authenticate(password) == self
     end
   end
 end
