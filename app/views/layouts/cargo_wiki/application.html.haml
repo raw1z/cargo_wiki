@@ -12,7 +12,7 @@
         = content_tag :div, msg, :id => "flash-#{name}", :class => "flash"
 
       %nav(role='navigation')
-        %ul
+        %ul#menu
           %li.tags
             = link_to image_tag('cargo_wiki/tags.png') + raw('<br/> Tags'), tags_path
           %li.articles

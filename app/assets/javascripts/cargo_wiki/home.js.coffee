@@ -4,6 +4,7 @@ hideFlash = ->
 
 setupLayout = ->
   $('nav').height($(document).height())
+  $('#menu').width($('nav').outerWidth())
 
 jQuery ->
   # set the active tab

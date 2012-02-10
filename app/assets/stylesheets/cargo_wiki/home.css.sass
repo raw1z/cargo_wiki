@@ -62,23 +62,26 @@ nav
   color: $nav-color
   text-transform: uppercase
 
-  ul
-    +no-bullet
-    margin: 0
-    padding: 0
+ul#menu
+  position: fixed
+  top: 0
+  left: 0
+  +no-bullet
+  margin: 0
+  padding: 0
 
-    li
-      text-align: center
-      border-bottom: 1px solid darken($nav-bg-color, 5)
-      padding: 1em 0 1em 0
-      cursor: pointer
-      &:hover, &.active
-        background: transparent url(/assets/cargo_wiki/nav-menu-bg.png) no-repeat top left
-      a
-        +link-colors($nav-color, $nav-color, $nav-color, $nav-color, $nav-color)
-        display: block
-      img
-        border: none
+  li
+    text-align: center
+    border-bottom: 1px solid darken($nav-bg-color, 5)
+    padding: 1em 0 1em 0
+    cursor: pointer
+    &:hover, &.active
+      background: transparent url(/assets/cargo_wiki/nav-menu-bg.png) no-repeat top left
+    a
+      +link-colors($nav-color, $nav-color, $nav-color, $nav-color, $nav-color)
+      display: block
+    img
+      border: none
 
 #body
   +column(20)
