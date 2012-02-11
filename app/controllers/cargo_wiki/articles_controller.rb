@@ -6,10 +6,10 @@ module CargoWiki
     def index
       if params[:tag_id]
         @tag = ActsAsTaggableOn::Tag.find(params[:tag_id])
-        @articles = Article.published.tagged_with(@tag.name).order('created_at ASC')
-        @unpublished_articles = Article.unpublished.tagged_with(@tag.name).order('created_at ASC')
+        @articles = Article.published.tagged_with(@tag.name).order('updated_at DESC')
+        @unpublished_articles = Article.unpublished.tagged_with(@tag.name).order('updated_at DESC')
       else
-        @articles = Article.published
+        @articles = Article.published.order('updated_at DESC')
         @unpublished_articles = Article.unpublished
       end
 
