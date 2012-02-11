@@ -3,7 +3,7 @@ module CargoWiki
     respond_to :html, :json
 
     def index
-      @tags = ActsAsTaggableOn::Tag.where("name like ?", "%#{params[:q]}%").order('name ASC')
+      @tags = CargoWiki::Article.tag_counts_on(:tags).order("name ASC")
       respond_with(@tags)
     end
   end

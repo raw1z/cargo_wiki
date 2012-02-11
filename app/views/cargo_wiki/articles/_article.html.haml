@@ -1,4 +1,10 @@
 .article
   %h1.title= article.title
+
+  - unless article.tags.empty?
+    .tags_list
+      - article.tags.each do |tag|
+        = link_to tag.name, tag_articles_path(tag), :class => "tag"
+
   - unless article.body.blank?
     .body= find_and_preserve markdown(article.body)

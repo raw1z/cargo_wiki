@@ -22,5 +22,5 @@
         %td= version.index
         %td= link_to (version.next.try(:reify) || version.item).title, article_version_path(version.item, version)
         %td= version.commit_message
-        %td= version.created_by.username
+        %td= version.created_by.try(:username) || version.item.author.username
         %td=l version.created_at, :format => :short

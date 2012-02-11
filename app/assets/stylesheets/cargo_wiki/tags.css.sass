@@ -5,29 +5,41 @@
 @import cargo_wiki/mixins
 
 .tags_list
-  text-align: center
-  font-size: 1.3em
+  font-size: 1.2em
 
-  .css1, .css2, .css3, .css4
+  .tag
     +link-colors($tag-color)
     +border-radius(45px)
+    margin-bottom: 1em
     display: inline-block
     background-color: $tag-bg-color
     color: $tag-color
-    padding: 0.3em 0.5em 0em 0.5em
+    padding: 0.2em 0.5em 0.3em 0.5em
     text-decoration: none
-    font-family: saxMonoRegular
     border: 1px solid darken($tag-bg-color, 5)
+    a
+      +link-colors($tag-color)
     &:hover
+      background-color: darken($tag-bg-color, 40)
+      color: lighten($tag-bg-color, 50)
+    .weight
+      +border-radius(45px)
+      display: inline-block
+      font-size: 0.8em
+      margin-left: 0.5em
       background-color: darken($tag-bg-color, 10)
+      color: lighten($tag-bg-color, 15)
+      width: 30px
+      text-align: center
 
-  .css1
-    font-size: 1.0em
   .css2
-    font-size: 1.2em
+    background-color: darken($tag-bg-color, 20)
+    color: lighten($tag-bg-color, 50)
 
   .css3
-    font-size: 1.4em
+    background-color: darken($tag-bg-color, 25)
+    color: lighten($tag-bg-color, 50)
 
   .css4
-    font-size: 1.6em
+    background-color: darken($tag-bg-color, 30)
+    color: lighten($tag-bg-color, 50)
