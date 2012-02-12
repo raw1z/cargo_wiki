@@ -22,4 +22,16 @@ describe CargoWiki::User do
     user.save.should == false
     user.errors.messages[:role].should include("can't be blank")
   end
+
+  it "validates the presence of the password" do
+    user = FactoryGirl.build(:user, :password => "")
+    user.save.should == false
+    user.errors.messages[:password].should include("can't be blank")
+  end
+
+  it "validates the presence of the password confirmation" do
+    user = FactoryGirl.build(:user, :password_confirmation => "")
+    user.save.should == false
+    user.errors.messages[:password].should include("doesn't match confirmation")
+  end
 end

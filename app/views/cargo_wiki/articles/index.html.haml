@@ -4,11 +4,13 @@
   .toolbar
     = link_to 'New Article', new_article_path
 
-.articles= render 'articles', :articles => @articles
+.articles
+  = render 'articles', :articles => @articles
 
 - if signed_in? and current_user.admin?
   - unless @unpublished_articles.empty?
     %br
 
     %h1.title #{@tag.blank? ? 'Unpublished Articles' : @tag.name + ' - Unpublished Articles'}
-    .unpublished-articles= render 'articles', :articles => @unpublished_articles
+    .unpublished-articles
+      = render 'articles', :articles => @unpublished_articles
