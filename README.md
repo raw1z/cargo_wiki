@@ -1,8 +1,8 @@
-= CargoWiki
+# CargoWiki
 
 cargo_wiki allows you to install a wiki in a Rails 3 application.
 
-== Installation
+## Installation
 
 Add the following line to you gem file:
 
