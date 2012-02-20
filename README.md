@@ -4,13 +4,21 @@ cargo_wiki allows you to install a wiki in a Rails 3 application.
 
 ## Installation
 
-Add the following line to you gem file:
+Add cargo_wiki to your Gemfile:
 
 ~~~ruby
 gem 'cargo_wiki'
 ~~~
 
-The run:
+cargo_wiki uses compass, and you must add compass support in the assets group of your Gemfile:
+
+~~~ruby
+group :assets do
+  gem 'compass-rails'
+end
+~~~
+
+Then run:
 
 ~~~bash
 bundle install

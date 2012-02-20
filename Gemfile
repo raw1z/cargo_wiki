@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem "jquery-rails"
 gem "haml-rails"
 gem "sass-rails"
-gem "compass", ">= 0.12.alpha.4"
+gem "compass-rails"
 gem "coffee-rails"
 gem "execjs"
 gem "paper_trail"
