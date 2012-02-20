@@ -1,4 +1,3 @@
-require 'ap'
 module CargoWiki
   class ApplicationController < ActionController::Base
     private
